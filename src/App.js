@@ -1,20 +1,23 @@
 import { render } from '@testing-library/react';
+import { CSSTransition } from 'react-transition-group'
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import gunSound from './snd/gun2.mp3';
-import * as Seohyun from './Seohyun.js';
 
 function App() {
   
   const getImg = () => {
     return "img/hakgyo.png";
   }
-  
+
+  const nodeRef = React.useRef(null);
+
   const [click, setClick] = useState(0);
+
+  const [clickState, setClickState] = useState(0);
 
   const [hakgyoImg, setHakgyoImg] = useState(getImg);
 
-  
+  const audios = new Map();
 
   const useAudio = () => {
     const [loaded, setLoaded] = useState(0);
@@ -56,19 +59,37 @@ function App() {
 
     return{
       loaded,
-
+      audios
     };
   }
 
-  const {loaded, audios} = useAudio("snd/gun2.aif");
+  const StartClick = () => {
+    setClick(click + 1);
+    setClickState(1);
+    setHakgyoImg("img/hakgyoboom.png");
+    useAudio();
+  }
+
+  const endClick = () => {
+    setClickState(0);
+    setHakgyoImg(getImg);
+  }
 
   return(
-    <div>
-      <h1>Burning Seohyun High School</h1>
+    <div onPointerDown={StartClick} onPointerUp={endClick} onLostPointerCapture={endClick}>
+      <img id="hakgyo" src={hakgyoImg} />
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={clickState}
+        timeout={30}
+        classNames="hakgyo"
+        onEnter={()=>{setHakgyoImg("img/hakgyo.png");}}
+        onExited={()=>{setHakgyoImg("img/hakgyoboom.png");}}
+        >
+        <div className="count">{click}</div>
+      </CSSTransition>
     </div>
   );
-  
-
 }
 
 export default App;

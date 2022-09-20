@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.play_game .title {
+	height: 15vmin;
+	pointer-events: none;
+	margin: 10vh 0 0;
+	width: min(600px,80%);
+}
