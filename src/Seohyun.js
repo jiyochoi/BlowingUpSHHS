@@ -1,4 +1,4 @@
-/*import React, { useState } from "react";
+import React, { useState } from "react";
 
 export default class Seohyun extends React.Component {
     constructor(props) {
@@ -24,4 +24,4 @@ export default class Seohyun extends React.Component {
             </div>
         );
     }
-} */
+}
