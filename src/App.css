@@ -2,6 +2,7 @@ body {
     text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */
     font-family: 'Jua', sans-serif;
     font-size: x-large;
+    
 }
   
 p {
@@ -9,3 +10,21 @@ p {
     width: 100px;
     margin: 0 auto;
 }
+
+.count {
+    font-size: xx-large;
+    font-weight: bold;
+    color: #000;
+    margin: 0 auto;
+    width: 100px;
+    text-align: center;
+}
+
+img {
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+}
+   

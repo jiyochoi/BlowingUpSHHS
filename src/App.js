@@ -65,19 +65,18 @@ function App() {
 
   const StartClick = () => {
     setClick(click + 1);
-    setClickState(1);
+    setClickState(0);
     setHakgyoImg("img/hakgyoboom.png");
     useAudio();
   }
 
   const endClick = () => {
-    setClickState(0);
+    setClickState(1);
     setHakgyoImg(getImg);
   }
 
   return(
     <div onPointerDown={StartClick} onPointerUp={endClick} onLostPointerCapture={endClick}>
-      <img id="hakgyo" src={hakgyoImg} />
       <CSSTransition
         nodeRef={nodeRef}
         in={clickState}
@@ -88,6 +87,7 @@ function App() {
         >
         <div className="count">{click}</div>
       </CSSTransition>
+      <img id="hakgyo" src={hakgyoImg} />
     </div>
   );
 }
