@@ -2,6 +2,7 @@ import { render } from '@testing-library/react';
 import { CSSTransition } from 'react-transition-group'
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import gunSound from './snd/toc.aif';
 
 function App() {
   
@@ -18,7 +19,7 @@ function App() {
   const [hakgyoImg, setHakgyoImg] = useState(getImg);
 
   const audios = new Map();
-
+/*
   const useAudio = () => {
     const [loaded, setLoaded] = useState(0);
 
@@ -62,17 +63,21 @@ function App() {
       audios
     };
   }
+*/
+
+  var audio = new Audio(gunSound);
+
 
   const StartClick = () => {
     setClick(click + 1);
     setClickState(0);
     setHakgyoImg("img/hakgyoboom.png");
-    useAudio();
   }
 
   const endClick = () => {
     setClickState(1);
     setHakgyoImg(getImg);
+    audio.play();
   }
 
   return(
@@ -93,3 +98,5 @@ function App() {
 }
 
 export default App;
+
+
