@@ -18,7 +18,6 @@ function App() {
 
   const [hakgyoImg, setHakgyoImg] = useState(getImg);
 
-  const audios = new Map();
 /*
   const useAudio = () => {
     const [loaded, setLoaded] = useState(0);
@@ -65,7 +64,7 @@ function App() {
   }
 */
 
-  var audio = new Audio(gunSound);
+  const audio = new Audio(gunSound);
 
 
   const StartClick = () => {
@@ -78,10 +77,12 @@ function App() {
     setClickState(1);
     setHakgyoImg(getImg);
     audio.play();
+    audio.load();
   }
 
   return(
     <div onPointerDown={StartClick} onPointerUp={endClick} onLostPointerCapture={endClick}>
+      <h1>BURN SeoHyunHighSchool</h1>
       <CSSTransition
         nodeRef={nodeRef}
         in={clickState}

@@ -1,20 +1,31 @@
+@font-face {
+    font-family: 'CWDangamAsac-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/CWDangamAsac-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     text-align: center; /* Quirks Mode 를 위한 가운데 정렬 */
-    font-family: 'Jua', sans-serif;
-    font-size: 10px;
+    font-family: 'CWDangamAsac-Bold', sans-serif; 
+    color: #fff;
+    text-shadow: -0.2rem 0rem black, 0rem 0.2rem black, 0.2rem 0rem black, 0rem -0.2rem black;
+    font-size: 0.7rem;
     user-select : none;
-    
+    background-color:#Ffc500
 }
   
 p {
-    width: 100px;
+    width: 100rem;
     margin: 0 auto;
 }
 
 .count {
+    font-family: 'CWDangamAsac-Bold';
     font-size: 5rem;
     font-weight: bold;
-    color: #000;
+    text-shadow: -0.4rem 0rem black, 0rem 0.4rem black, 0.4rem 0rem black, 0rem -0.4rem black;
+    color: #fff;
     margin: 0 auto;
     width: 100%;
     text-align: center;
